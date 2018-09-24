@@ -1,0 +1,44 @@
+---
+
+- name: add gpg docker key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+
+- name: add docker repository
+  apt_repository:
+    repo: '{{ docker_repo }}'
+
+- name: install docker-ce
+  apt:
+    name: docker-ce
+    update_cache: yes
+    cache_valid_time: 0
+
+- name: add 'docker' to start on boot
+  service:
+    name: docker
+    enabled: yes
+
+
+# Required for 'docker' ansible module
+- name: install 'docker-py'
+  pip:
+    name: docker-py
+
+
+- include: tls.yml
+
+
+- name: create directory
+  file: 
+    state: directory
+    path: '/etc/systemd/system/docker.service.d/'
+
+
+- name: upload docker configuration file
+  template:
+    src: 'docker.conf.j2'
+    dest: '/etc/systemd/system/docker.service.d/docker.conf'
+  notify:
+    - 'daemon-reload'
+    - 'restart docker'

@@ -10,3 +10,7 @@
     - { role: 'common', tags: ['common'] }
     - { role: 'user', tags: ['user'] }
     - { role: 'zsh', tags: ['zsh'] }
+
+- hosts: cloud
+  roles:
+    - { role: 'docker', tags: ['docker'] }
