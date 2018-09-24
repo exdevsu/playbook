@@ -1,0 +1,9 @@
+#Add user {{ user_name }}
+
+
+- include: user.yml
+  when: user_name is defined
+
+- debug:
+    msg: 'user_name is not defined. Skip creating'
+  when: user_name is not defined

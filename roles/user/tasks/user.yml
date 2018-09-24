@@ -1,0 +1,13 @@
+#TODO add user to visudo
+---
+- name: add user {{ user_name }}
+  user:
+    name: "{{ user_name }}"
+
+
+- name: add pub key to {{ user_name }}
+  authorized_key:
+    user: '{{ user_name }}'
+    key: '{{ item }}'
+  with_file:
+    - public_keys/volandevovan.pub

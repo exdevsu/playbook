@@ -1,0 +1,40 @@
+#TODO: fix problems with owners
+---
+
+
+- name: install zsh
+  apt:
+    name: zsh
+
+
+- name: clone zsh
+  git:
+    repo: 'https://github.com/robbyrussell/oh-my-zsh.git'
+    dest: '{{ item }}/.oh-my-zsh'
+    clone: yes
+  with_items: '{{ zsh_users_home }}'
+
+
+- name: copy zsh config template to ~/.zshrc
+  copy:
+    mode: preserve
+    remote_src: yes
+    src: '{{ item }}/.oh-my-zsh/templates/zshrc.zsh-template'
+    dest: '{{ item }}/.zshrc'
+  with_items: '{{ zsh_users_home }}'
+
+
+- name: change zsh theme
+  replace:
+    dest: '{{ item }}/.zshrc'
+    regexp: '^ZSH_THEME=\"robbyrussell\"'
+    replace: 'ZSH_THEME="{{ zsh_theme }}"'
+  with_items: '{{ zsh_users_home }}'
+  when: zsh_theme is defined
+
+
+- name: change user shell
+  user:
+    name: '{{ item }}'
+    shell: /bin/zsh
+  with_items: '{{ zsh_users }}'

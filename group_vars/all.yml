@@ -1,0 +1,24 @@
+---
+
+common_packages:
+  - python-setuptools
+  - python-pip
+  - zip
+  - unzip
+
+#user name (It's not created if the variable is not declared)
+user_name: volandevovan
+
+#list of userswho receive zsh
+#it does not happen if the variable is not declared
+zsh_users:
+  - root
+  - '{{ user_name }}'
+
+#user directory in which to put oh my zsh
+zsh_users_home:
+  - /root
+  - /home/{{ user_name }}
+
+#zsh theme (It's not changed if the variable is not declared)
+zsh_theme: gentoo

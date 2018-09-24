@@ -1,0 +1,12 @@
+---
+
+- hosts: all
+  gather_facts: no
+  roles:
+    - { role: 'init', tags: ['init'] }
+
+- hosts: all
+  roles:
+    - { role: 'common', tags: ['common'] }
+    - { role: 'user', tags: ['user'] }
+    - { role: 'zsh', tags: ['zsh'] }
