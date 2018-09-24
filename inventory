@@ -1,5 +1,17 @@
-[scaleway-main]
+[scaleway-cloud]
 51.158.77.88
+
+
+[scaleway-server]
+
+
+
+[cloud:children]
+scaleway-cloud
+
+[server:children]
+scaleway-server
+
 
 [all:vars]
 ansible_connection=ssh
