@@ -4,4 +4,4 @@
   docker_container:
     image: '{{ docker_consul_image }}'
     name: consul
-    state: restarted
+    state: started
