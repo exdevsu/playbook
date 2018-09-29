@@ -23,6 +23,7 @@ gen-ca:
 
 gen-consul-certs:
 	@(touch $(CONSUL_CERTS_DIR)/certindex)
+	@(touch $(CONSUL_CERTS_DIR)/certindex.attr)
 	@(cd $(CONSUL_CERTS_DIR) && openssl req -x509 -newkey rsa:2048 -days 3650 -nodes -out ca.cert)
 	@(cd $(CONSUL_CERTS_DIR) && openssl req -newkey rsa:1024 -nodes -out consul.csr -keyout consul.key)
 	@(cd $(CONSUL_CERTS_DIR) && openssl ca -batch -config myca.conf -notext -in consul.csr -out consul.cert)

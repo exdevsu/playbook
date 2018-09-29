@@ -1,0 +1,9 @@
+---
+# docker-consul
+# first host in "my_name_dc" DC
+docker_consul_join: '{{ hostvars[groups["dc-1"][0]]["ansible_ens2"]["ipv4"]["address"] }}'
+docker_consul_dc: 'dc-1'
+
+# docker-swarm-manager
+# first host in "my_name_dc" DC
+docker_swarm_manager_ip: '{{ hostvars[groups["dc-1"][0]]["ansible_ens2"]["ipv4"]["address"] }}'

@@ -14,3 +14,5 @@
 - hosts: cloud
   roles:
     - { role: 'docker', tags: ['docker'] }
+    - { role: 'docker-consul', tags: ['docker-consul'] }
+    

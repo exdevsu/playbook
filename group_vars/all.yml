@@ -23,9 +23,3 @@ zsh_users_home:
 
 #zsh theme (It's not changed if the variable is not declared)
 zsh_theme: gentoo
-
-
-certs_ca_password: '12345q'
-docker_swarm:
-  token: 'dc52f2413972147acd4462de63fd8cef'
-  manager: '' #Ip for manager
