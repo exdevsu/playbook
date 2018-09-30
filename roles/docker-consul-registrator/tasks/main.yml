@@ -1,0 +1,14 @@
+---
+
+- name: retrieves and launches 'consul-registrator' image
+  docker_container:
+    image: '{{ docker_consul_registrator_image }}'
+    volumes:
+      - '/var/run/docker.sock:/tmp/docker.sock'
+    hostname: '{{ ansible_hostname }}'
+    name: consul-registrator
+    command: 'consul://{{ ansible_ens2.ipv4.address }}:8500'
+    pull: yes
+    state: started
+    restart_policy: always
+    restart: yes

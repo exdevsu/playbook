@@ -20,25 +20,21 @@
     enabled: yes
 
 
-# Required for 'docker' ansible module
+# Reр quired for 'docker' ansible module
 - name: install 'docker-py'
   pip:
     name: docker-py
 
-
-- include: tls.yml
-
-
-- name: create directory
+- name: creates directory
   file: 
     state: directory
     path: '/etc/systemd/system/docker.service.d/'
 
 
-- name: upload docker configuration file
+- name: uploads docker configuration file
   template:
-    src: 'docker.conf.j2'
-    dest: '/etc/systemd/system/docker.service.d/docker.conf'
+    src: 'override.conf.j2'
+    dest: '/etc/systemd/system/docker.service.d/override.conf'
   notify:
     - 'daemon-reload'
     - 'restart docker'

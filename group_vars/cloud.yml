@@ -11,8 +11,6 @@ docker_repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic s
 docker_consul_encrypt: 'L+3UkrkFeXHQBT97nTZI/g=='
 docker_consul_start_join_wan:
   - "{{ hostvars[groups['dc-1'][0]]['ansible_ens2']['ipv4']['address'] }}"
+  - "{{ hostvars[groups['dc-1'][1]]['ansible_ens2']['ipv4']['address'] }}"
+  - "{{ hostvars[groups['dc-1'][2]]['ansible_ens2']['ipv4']['address'] }}"
 
-
-docker_swarm:
-  token: 'dc52f2413972147acd4462de63fd8cef'
-  manager: '' #Ip for manager

@@ -15,4 +15,6 @@
   roles:
     - { role: 'docker', tags: ['docker'] }
     - { role: 'docker-consul', tags: ['docker-consul'] }
-    
+    - { role: 'docker-swarm', tags: ['docker-swarm'] }
+    - { role: 'docker-swarm-manager', tags: ['docker-swarm-manager'] }
+    - { role: 'docker-consul-registrator', tags: ['docker-consul-registrator'] }

@@ -1,20 +1,17 @@
-[scaleway-cloud]
-51.158.77.88
+[dc-1]
+51.158.77.88 hostname=cw-1 #10.14.203.157
+51.15.228.112 hostname=cw-2 #10.16.156.3
+51.158.75.141 hostname=cw-3 #10.16.126.155
+51.158.68.35  hostname=cw-4 
 
-
-[scaleway-server]
-51.158.77.88
-
+[scaleway-cloud:children]
+dc-1
 
 [cloud:children]
 scaleway-cloud
-
-[server:children]
-scaleway-server
-
 
 [all:vars]
 ansible_connection=ssh
 ansible_ssh_port=22
 ansible_ssh_user=root
-ansible_private_key_file = /home/volandevovan/.ssh/private/mc
+ansible_private_key_file = /home/bayazet/.ssh/private/mc
