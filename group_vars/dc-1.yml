@@ -5,5 +5,4 @@ docker_consul_join: '{{ hostvars[groups["dc-1"][0]]["ansible_ens2"]["ipv4"]["add
 
 
 # docker-swarm-manager
-docker_swarm_cluster_id: 'f724fcde178d3be48bf5f2ecc4e16c4f'
 docker_swarm_manager_ip: '10.14.203.157'
