@@ -7,7 +7,7 @@ Some of them were used in my implementation
 
 **article**: https://habr.com/post/277657/
 
-*Note: This is not a fork or a copy. Everything was rewritten from scratch, I just used the materials that were provided
+*Note: This is not a fork or a copy. Everything was rewritten from scratch, I just used the materials that were provided*
 
 
 ## Quick start
