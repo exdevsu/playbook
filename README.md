@@ -28,7 +28,7 @@ Other hosts may not work due to a different interface name**
 ```
 docker_swarm_manager_ip: '10.14.203.157'
 ```
-*Note: it may be equal to ens2 interface ip
+*Note: it may be equal to ens2 interface ip*
 
 3. Add docker three ip address to cloud.yml in group_vars folder
 ```
@@ -41,3 +41,9 @@ docker_consul_start_join_wan:
 ```
 $ ansible-playbook -i inventory main.yml
 ```
+## Example use
+**Run nginx on a free node**
+```
+$docker -H tcp://51.158.77.88:8000 run -d --name site-1 -p 80:80 nginx
+```
+*Note: 51.158.77.88 must be replaced with your docker swarm manager address*
