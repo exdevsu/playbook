@@ -46,4 +46,10 @@ $ ansible-playbook -i inventory main.yml
 ```
 $docker -H tcp://51.158.77.88:8000 run -d --name site-1 -p 80:80 nginx
 ```
+
+**Stop nginx**
+```
+$docker -H tcp://51.158.77.88:8000 stop site-1
+```
+
 *Note: 51.158.77.88 must be replaced with your docker swarm manager address*
